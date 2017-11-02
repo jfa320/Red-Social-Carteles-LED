@@ -1,9 +1,23 @@
 package com.example.redsocialcartelesluminosos.domainmodel;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+
+
+@Entity
 public class Post extends Publicacion {
+	
+
+	
 	private String cuerpo;
 	private int popularidad;
-	private Imagen img=null;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Imagen img;
 	
 	public String getCuerpo(){
 		return this.cuerpo;

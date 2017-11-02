@@ -1,5 +1,6 @@
 package com.example.redsocialcartelesled.presentacion;
 
+import com.example.redsocialcartelesluminosos.services.ServicioPublicadorUsuario;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.Button;
@@ -7,11 +8,13 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.Button.ClickEvent;
 
 
 public class creacionPost extends VerticalLayout implements View {
 
-	public static final String NAME = "";
+	protected static final String NAME = "";
+	private ServicioPublicadorUsuario servicioPublicadorUsuario=new ServicioPublicadorUsuario();
 
 	public creacionPost(){
 		
@@ -23,7 +26,17 @@ public class creacionPost extends VerticalLayout implements View {
 		
 		HorizontalLayout horLay=new HorizontalLayout();
 		Button subirImg=new Button("Subir Imagen");
+		
 		Button publicar=new Button("Publicar");
+		
+		publicar.addClickListener(new Button.ClickListener() {
+			
+			@Override
+			public void buttonClick(ClickEvent event) {
+				servicioPublicadorUsuario.publicarPost(campo.getValue());
+				
+			}
+		});
 		
 		horLay.addComponent(subirImg);
 		horLay.addComponent(publicar);
