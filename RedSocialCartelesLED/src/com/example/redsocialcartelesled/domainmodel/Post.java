@@ -1,4 +1,4 @@
-package com.example.redsocialcartelesluminosos.domainmodel;
+package com.example.redsocialcartelesled.domainmodel;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;

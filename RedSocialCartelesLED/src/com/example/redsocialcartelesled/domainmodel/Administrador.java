@@ -1,4 +1,4 @@
-package com.example.redsocialcartelesluminosos.domainmodel;
+package com.example.redsocialcartelesled.domainmodel;
 
 public class Administrador {
 	private int codigo;

@@ -1,11 +1,11 @@
-package com.example.redsocialcartelesluminosos.services;
+package com.example.redsocialcartelesled.services;
 
 import java.util.Date;
 
-import com.example.redsocialcartelesluminosos.daos.DAOPublicadorUsuario;
-import com.example.redsocialcartelesluminosos.daos.HibernateDAOPublicadorUsuario;
-import com.example.redsocialcartelesluminosos.domainmodel.Post;
-import com.example.redsocialcartelesluminosos.domainmodel.Usuario;
+import com.example.redsocialcartelesled.daos.DAOPublicadorUsuario;
+import com.example.redsocialcartelesled.daos.HibernateDAOPublicadorUsuario;
+import com.example.redsocialcartelesled.domainmodel.Post;
+import com.example.redsocialcartelesled.domainmodel.Usuario;
 
 public class ServicioPublicadorUsuario {
 	private DAOPublicadorUsuario publicadorDAO=new HibernateDAOPublicadorUsuario();

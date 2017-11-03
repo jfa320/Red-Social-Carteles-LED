@@ -1,4 +1,4 @@
-package com.example.redsocialcartelesluminosos.domainmodel;
+package com.example.redsocialcartelesled.domainmodel;
 
 import java.util.ArrayList;
 import java.util.List;

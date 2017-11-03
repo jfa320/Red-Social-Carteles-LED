@@ -1,4 +1,4 @@
-package com.example.redsocialcartelesluminosos.domainmodel;
+package com.example.redsocialcartelesled.domainmodel;
 
 public class Pregunta {
 	private String cuerpo;
