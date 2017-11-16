@@ -1,6 +1,8 @@
 package com.example.redsocialcartelesled.presentacion;
 
 import javax.servlet.annotation.WebServlet;
+
+import com.example.redsocialcartelesled.services.ServicioPublicadorUsuario;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.navigator.Navigator;
@@ -12,10 +14,9 @@ import com.vaadin.ui.UI;
 @SuppressWarnings("serial")
 @Theme("redsocialcartelesled")
 public class RedsocialcartelesledUI extends UI {
-	Navigator navegador;
+	private Navigator navegador;
 	
-	
-	
+	 
 	
 	
 	@WebServlet(value = "/*", asyncSupported = true)
@@ -32,7 +33,7 @@ public class RedsocialcartelesledUI extends UI {
 	
 	private void configurarComponentes(){
 		navegador=new Navigator(this,this);
-		navegador.addView(creacionPost.NAME, new creacionPost());
+		navegador.addView(CreacionPost.NAME, new CreacionPost());
 	}
 
 }

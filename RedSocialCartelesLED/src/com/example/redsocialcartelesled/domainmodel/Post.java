@@ -11,8 +11,6 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Post extends Publicacion {
 	
-
-	
 	private String cuerpo;
 	private int popularidad;
 	

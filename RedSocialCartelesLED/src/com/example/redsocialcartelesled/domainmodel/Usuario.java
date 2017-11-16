@@ -67,4 +67,8 @@ public class Usuario {
 		this.puntosPrestigio=puntosPrestigio;
 	}
 	
+	public Long getID(){
+		return id;
+	}
+	
 }
