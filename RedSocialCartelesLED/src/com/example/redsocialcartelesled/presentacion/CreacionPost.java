@@ -20,7 +20,7 @@ public class CreacionPost extends FormLayout implements View {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	protected static final String NAME = "";
+	protected static final String NAME = "Post";
 	
 	private Button subirImg=new Button("Subir Imagen");
 	
@@ -31,7 +31,7 @@ public class CreacionPost extends FormLayout implements View {
 	private ServicioPublicadorUsuario servicioPublicadorUsuario=new ServicioPublicadorUsuario();
 	
 	private Post post=new Post();
-	BeanFieldGroup<Post> formFieldBindings;
+	private BeanFieldGroup<Post> formFieldBindings;
 	public CreacionPost(){
 
 		formFieldBindings =BeanFieldGroup.bindFieldsBuffered(post, this);

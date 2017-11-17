@@ -19,7 +19,7 @@ public class Usuario {
 	
 	private String username;
 	private String mail;
-	private int cuit_cuil;
+	private Long cuit_cuil;
 	private String contraseña;
 	private int puntosPrestigio;
 	
@@ -34,7 +34,7 @@ public class Usuario {
 		return mail;
 	}
 	
-	public int getCuit_cuil(){
+	public Long getCuit_cuil(){
 		return cuit_cuil;
 	}
 	
@@ -55,7 +55,7 @@ public class Usuario {
 		this.mail=mail;
 	}
 	
-	public void setCuit_cuil(int cuit){
+	public void setCuit_cuil(Long cuit){
 		this.cuit_cuil=cuit;
 	}
 	

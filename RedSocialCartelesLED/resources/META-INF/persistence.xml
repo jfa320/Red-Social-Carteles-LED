@@ -25,7 +25,7 @@
             <property name="javax.persistence.jdbc.user" value="sa" />
             <property name="javax.persistence.jdbc.password" value="" /> -->
              <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/redsocialcartelesled" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/redsocialcarteles" />
             <property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password" value="especificacion123" />
 

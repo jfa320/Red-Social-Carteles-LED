@@ -1,5 +1,6 @@
 package com.example.redsocialcartelesled.services;
 
+
 import java.util.Objects;
 
 import com.example.redsocialcartelesled.daosImpl.HibernateDAOServicioUsuario;
@@ -12,11 +13,11 @@ public class ServicioUsuario {
 	
 	public boolean registrar(Usuario usuario){ //teniendo como boolean podemos notificar que no se pudo realizar
 												//registro por algun motivo (por ej: cuit invalido)
-		if(esValidoCuitDe(usuario)){
+//		if(esValidoCuitDe(usuario)){
 			publicadorUsuarioDAO.persistir(usuario);
 			return true;
-		}
-		return false;
+//		}
+//		return false;
 	}
 	
 	public boolean login(Usuario usuario){//idem registro,si se puede loguear correctamente tira true sino false
@@ -45,7 +46,7 @@ public class ServicioUsuario {
 	
 	private boolean esValidoCuitDe(Usuario usuario){ //NOTA:codigo sacado de la Web
 		
-		String cuit= Integer.toString(usuario.getCuit_cuil());
+		String cuit= Long.toString(usuario.getCuit_cuil());
 		
 	    //Controlamos si son 11 números los que quedaron, si no es el caso, ya devuelve falso
 	    if (cuit.length() != 11){

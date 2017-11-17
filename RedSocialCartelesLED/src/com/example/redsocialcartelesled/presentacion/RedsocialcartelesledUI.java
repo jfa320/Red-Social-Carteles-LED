@@ -20,7 +20,7 @@ public class RedsocialcartelesledUI extends UI {
 	
 	
 	@WebServlet(value = "/*", asyncSupported = true)
-	@VaadinServletConfiguration(productionMode = false, ui = RedsocialcartelesledUI.class)
+	@VaadinServletConfiguration(productionMode = false, ui = RedsocialcartelesledUI.class, widgetset = "com.example.redsocialcartelesled.presentacion.widgetset.RedsocialcartelesledWidgetset")
 	public static class Servlet extends VaadinServlet {
 	}
 
@@ -33,7 +33,11 @@ public class RedsocialcartelesledUI extends UI {
 	
 	private void configurarComponentes(){
 		navegador=new Navigator(this,this);
+		navegador.addView(Logueo.NAME, new Logueo());
 		navegador.addView(CreacionPost.NAME, new CreacionPost());
+		
+		navegador.addView(Registro.NAME, new Registro());
+		
 	}
 
 }
