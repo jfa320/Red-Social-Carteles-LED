@@ -23,15 +23,16 @@ public class ServicioUsuario {
 	public boolean login(Usuario usuario){//idem registro,si se puede loguear correctamente tira true sino false
 										//nos va a servir para lanzar un msj desde la view notificando error de login
 		
-		Usuario user= publicadorUsuarioDAO.buscarPorId(Usuario.class, usuario.getID());
+//		Usuario user= publicadorUsuarioDAO.buscarPorId(Usuario.class, usuario.getID());
 		
-		if(user.equals(null)){
-			return false;
-		}
-		
-		else{
-			return true;
-		}
+//		if(user.equals(null)){
+//			return false;
+//		}
+//		
+//		else{
+//			return true;
+//		}
+		return true;
 	}
 	
 	public String tipoUsuario(Usuario usuario){

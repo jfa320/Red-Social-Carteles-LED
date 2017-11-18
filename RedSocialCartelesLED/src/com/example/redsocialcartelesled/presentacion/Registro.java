@@ -19,7 +19,7 @@ import com.vaadin.ui.Button.ClickEvent;
 
 public class Registro extends FormLayout implements View {
 
-	protected static final String NAME = "Registro";
+	protected static final String NAME = "";
 	private FormLayout form = new FormLayout();
 	private Label mensajeinicio= new Label("REGISTRATE");
 	private TextField username = new TextField("USUARIO");

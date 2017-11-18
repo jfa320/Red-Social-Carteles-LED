@@ -22,6 +22,7 @@ public class Usuario {
 	private Long cuit_cuil;
 	private String contraseña;
 	private int puntosPrestigio;
+	private boolean esPrestigioso;
 	
 	@OneToMany(mappedBy = "publicador", cascade = CascadeType.ALL,orphanRemoval = true)
 	private List<Publicacion> publicaciones = new ArrayList<Publicacion>();
@@ -67,8 +68,19 @@ public class Usuario {
 		this.puntosPrestigio=puntosPrestigio;
 	}
 	
-	public Long getID(){
-		return id;
+
+	
+	public void setEsPrestigioso(boolean esPrestigioso){
+		this.esPrestigioso=esPrestigioso;
 	}
 	
+	public boolean getEsPrestigioso(){
+		return this.esPrestigioso;
+	}
+	public void setId(Long id){ //metodo para usar harcodeo publicarpost
+		this.id=id;
+	}
+	public List<Publicacion> getPublicaciones(){
+		return this.publicaciones;
+	}
 }
