@@ -16,7 +16,7 @@ public class Publicacion {
 	private Long id; //para persistir con Hibernate
 	
 	private Date fechaYHoraCreacion;
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	private Usuario publicador;
 	
 	public Date getFechaHoraCreacion(){

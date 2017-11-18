@@ -21,7 +21,7 @@ public class HibernateDAOImpl<T> implements DAO<T> {
 		entityManager.persist(t);
 		entityManager.getTransaction().commit();
 		
-		
+		entityManagerFactory.close();
 		return t;
 	}
 
@@ -33,7 +33,7 @@ public class HibernateDAOImpl<T> implements DAO<T> {
 		entityManager.remove(entityManager.merge(t)); //merge para que ande
 		
 		entityManager.getTransaction().commit();;
-		
+		entityManagerFactory.close();
 	}
 
 	@Override
@@ -46,7 +46,7 @@ public class HibernateDAOImpl<T> implements DAO<T> {
 		
 		entityManager.getTransaction().commit();
 
-		
+		entityManagerFactory.close();
 		return t;
 	}
 

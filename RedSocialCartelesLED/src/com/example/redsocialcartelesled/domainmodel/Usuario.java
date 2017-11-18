@@ -24,7 +24,7 @@ public class Usuario {
 	private int puntosPrestigio;
 	private boolean esPrestigioso;
 	
-	@OneToMany(mappedBy = "publicador", cascade = CascadeType.ALL,orphanRemoval = true)
+	@OneToMany(mappedBy = "publicador", cascade = CascadeType.MERGE,orphanRemoval = true)
 	private List<Publicacion> publicaciones = new ArrayList<Publicacion>();
 	
 	public String getUsername(){
