@@ -1,9 +1,9 @@
 package com.example.redsocialcartelesled.domainmodel;
 
+import java.util.ArrayList;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 
@@ -13,6 +13,7 @@ public class Post extends Publicacion {
 	
 	private String cuerpo;
 	private int popularidad;
+	private ArrayList<Calificacion> calificaciones;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Imagen img;
@@ -37,7 +38,12 @@ public class Post extends Publicacion {
 		this.img=img;
 	}
 	
-	
+	public void setCalificaciones(ArrayList<Calificacion> calificaciones){
+		this.calificaciones=calificaciones;
+	}
+	public  ArrayList<Calificacion> getCalificaciones(){
+		return calificaciones;
+	}
 	
 	
 	

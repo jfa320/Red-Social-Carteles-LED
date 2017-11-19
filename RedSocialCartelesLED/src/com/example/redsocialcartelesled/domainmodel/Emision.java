@@ -1,5 +1,6 @@
 package com.example.redsocialcartelesled.domainmodel;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Emision {
@@ -7,6 +8,8 @@ public class Emision {
 	private int cantidadPostMostrados;
 	private int duracionPostMostradosEnSegundos;
 	private int duracionEmisionEnMinutos;
+	private ArrayList<Publicacion> publicacionesEmitir;
+	private ArrayList<ContenidoMultimedia> multimediaEmitir;
 	
 	public Date getInicioEmision(){
 		return this.inicioEmision;
@@ -32,6 +35,19 @@ public class Emision {
 	}
 	public void setDuracionEmisionEnMinutos(int duracion){
 		this.duracionEmisionEnMinutos=duracion;
+	}
+	
+	public void setPublicacionesEmitir(ArrayList<Publicacion> publicacionesEmitir){
+		this.publicacionesEmitir=publicacionesEmitir;
+	}
+	public void setMultimediaEmitir(ArrayList<ContenidoMultimedia> multimediaEmitir){
+		this.multimediaEmitir=multimediaEmitir;
+	}
+	public ArrayList<Publicacion> getPublicacionesEmitir(){
+		return this.publicacionesEmitir;
+	}
+	public ArrayList<ContenidoMultimedia> getmultimediaEmitir(){
+		return this.multimediaEmitir;
 	}
 	
 }
