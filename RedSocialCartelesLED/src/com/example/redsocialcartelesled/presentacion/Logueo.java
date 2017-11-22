@@ -8,12 +8,14 @@ import com.vaadin.data.fieldgroup.FieldGroup.CommitException;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Component;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Window;
 
 
 public class Logueo extends FormLayout implements View {
@@ -30,9 +32,14 @@ public class Logueo extends FormLayout implements View {
 	private ServicioUsuario servicioUsuario=new ServicioUsuario();
 	private Usuario usuario=new Usuario();
 	private BeanFieldGroup<Usuario> formFieldBindings;
+	private Window subWindow = new Window("Usuario inexistente");
+	private VerticalLayout verLay2=new VerticalLayout();
+	
 	public Logueo(){
+		Label userInex=new Label("El Usuario no existe o el password es erroneo");
+		verLay2.addComponent(userInex);
 		
-		
+		subWindow.setContent(verLay2);
 		
 		construirLayout();
 
@@ -54,12 +61,17 @@ public class Logueo extends FormLayout implements View {
 			public void buttonClick(ClickEvent event) {
 				try {
 					formFieldBindings.commit();
+					
 				} catch (CommitException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+			
 				if(servicioUsuario.login(usuario)){
 					getUI().getNavigator().navigateTo(CreacionPost.NAME);
+				}
+				else{
+					getUI().addWindow(subWindow);
 				}
 				
 			}

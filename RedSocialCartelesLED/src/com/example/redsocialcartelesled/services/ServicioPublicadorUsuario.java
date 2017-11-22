@@ -1,11 +1,13 @@
 package com.example.redsocialcartelesled.services;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import com.example.redsocialcartelesled.daosImpl.HibernateDAOPublicadorUsuario;
 import com.example.redsocialcartelesled.daosImpl.HibernateDAOServicioUsuario;
 import com.example.redsocialcartelesled.daosgenericos.DAOPublicadorUsuario;
 import com.example.redsocialcartelesled.daosgenericos.DAOServicioUsuario;
+import com.example.redsocialcartelesled.domainmodel.Calificacion;
 import com.example.redsocialcartelesled.domainmodel.Post;
 import com.example.redsocialcartelesled.domainmodel.Publicacion;
 import com.example.redsocialcartelesled.domainmodel.Usuario;
@@ -36,6 +38,26 @@ public class ServicioPublicadorUsuario {
 //		usuarioDAO.cerrar();
 	}
 	
+	public Post levantarUltimoPost(){
+		Post post=new Post();
+		Calificacion c=new Calificacion();
+		c.setNota(3);
+		c.setPostCorrespondiente(post);
+		ArrayList<Calificacion> calificaciones = new ArrayList<Calificacion>();
+		calificaciones.add(c);
+		post.setCalificaciones(calificaciones);
+		post.setCuerpo("Hola,que haces?");
+		Date fechaYHoraCreacion=new Date();
+		post.setFechaHoraCreacion(fechaYHoraCreacion);
+		post.setImg(null);
+		post.setPopularidad(3);
+		Usuario publicador=new Usuario();
+		publicador.setUsername("Carlos");
+		post.setPublicador(publicador);
+		
+//		publicadorDAO.buscarPorId(post, 1L);
+		return post;
+	}
 	
 	
 }

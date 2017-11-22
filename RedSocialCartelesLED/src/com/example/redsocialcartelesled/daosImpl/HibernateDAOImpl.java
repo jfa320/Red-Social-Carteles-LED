@@ -1,5 +1,8 @@
 package com.example.redsocialcartelesled.daosImpl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -8,6 +11,7 @@ import com.example.redsocialcartelesled.daosgenericos.DAO;
 
 public class HibernateDAOImpl<T> implements DAO<T> {
 	private EntityManagerFactory entityManagerFactory;
+	private T clase;
 	
 	public HibernateDAOImpl(){
 		entityManagerFactory = Persistence.createEntityManagerFactory( "org.hibernate.tutorial.jpa" );
@@ -54,6 +58,32 @@ public class HibernateDAOImpl<T> implements DAO<T> {
 	public void cerrar() {
 		entityManagerFactory.close();
 		
+	}
+	@SuppressWarnings(value={"unchecked"})
+	@Override
+	public List<T> recuperarTodo(T tipo) {
+//		EntityManager entityManager = entityManagerFactory.createEntityManager();
+//		entityManager.getTransaction().begin();
+//		
+//	
+//		
+//		List<T> result=entityManager.createQuery("Select t from " + persistentClass.getSimpleName() + " t").getResultList();
+//		
+//		entityManager.getTransaction().commit();
+//		entityManager.close();
+//		
+//		return result;
+		this.clase=tipo;
+		List<T> result = new ArrayList<T>();
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		entityManager.getTransaction().begin();
+		
+		
+		result = entityManager.createQuery( "from "+ clase.getClass().getSimpleName()).getResultList();
+//		result = entityManager.createQuery( "from "+ "Usuario").getResultList();
+		entityManager.getTransaction().commit();
+		entityManager.close();
+		return result;
 	}
 
 }

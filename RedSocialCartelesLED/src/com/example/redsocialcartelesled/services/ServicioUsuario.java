@@ -1,6 +1,7 @@
 package com.example.redsocialcartelesled.services;
 
 
+import java.util.List;
 import java.util.Objects;
 
 import com.example.redsocialcartelesled.daosImpl.HibernateDAOServicioUsuario;
@@ -8,13 +9,13 @@ import com.example.redsocialcartelesled.daosgenericos.DAOServicioUsuario;
 import com.example.redsocialcartelesled.domainmodel.Usuario;
 
 public class ServicioUsuario {
-	private DAOServicioUsuario publicadorUsuarioDAO=new HibernateDAOServicioUsuario();
+	private DAOServicioUsuario usuarioDAO=new HibernateDAOServicioUsuario();
 	
 	
 	public boolean registrar(Usuario usuario){ //teniendo como boolean podemos notificar que no se pudo realizar
 												//registro por algun motivo (por ej: cuit invalido)
 //		if(esValidoCuitDe(usuario)){
-			publicadorUsuarioDAO.persistir(usuario);
+			usuarioDAO.persistir(usuario);
 			return true;
 //		}
 //		return false;
@@ -23,16 +24,16 @@ public class ServicioUsuario {
 	public boolean login(Usuario usuario){//idem registro,si se puede loguear correctamente tira true sino false
 										//nos va a servir para lanzar un msj desde la view notificando error de login
 		
-//		Usuario user= publicadorUsuarioDAO.buscarPorId(Usuario.class, usuario.getID());
 		
-//		if(user.equals(null)){
-//			return false;
-//		}
-//		
-//		else{
-//			return true;
-//		}
-		return true;
+		List<Usuario> usuarios=usuarioDAO.recuperarTodo(usuario);
+		for (int i=0;i<usuarios.size();i++){
+			if((usuarios.get(i).getUsername().equals(usuario.getUsername())) && (usuarios.get(i).getContraseña().equals(usuario.getContraseña()))){
+				return true;
+			}
+
+			
+		}
+		return false;
 	}
 	
 	public String tipoUsuario(Usuario usuario){
