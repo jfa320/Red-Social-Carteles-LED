@@ -1,14 +1,25 @@
 package com.example.redsocialcartelesled.domainmodel;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Calificacion {
+	@Id
+	@GeneratedValue
+	private Long id; //para persistir con Hibernate
 	private int nota; //de 1 a 5 (ver forma de restringir)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	private Post postCorrespondiente;
 	
 	public void setNota(int nota){
 		this.nota=nota;
 	}
 	
-	public int getNote(){
+	public int getNota(){
 		return this.nota;
 	}
 	

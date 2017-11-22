@@ -18,6 +18,7 @@
         <class>com.example.redsocialcartelesluminosos.domainmodel.Publicacion</class>        
         <class>com.example.redsocialcartelesluminosos.domainmodel.Post</class>
         <class>com.example.redsocialcartelesluminosos.domainmodel.Usuario</class>
+         <class>com.example.redsocialcartelesluminosos.domainmodel.Calificacion</class>
 
         <properties>
 <!--             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />

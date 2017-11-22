@@ -23,6 +23,7 @@ public class Usuario {
 	private String contraseña;
 	private int puntosPrestigio;
 	private boolean esPrestigioso;
+	private boolean estaBloqueado=false;
 	
 	@OneToMany(mappedBy = "publicador", cascade = CascadeType.MERGE,orphanRemoval = true)
 	private List<Publicacion> publicaciones = new ArrayList<Publicacion>();
@@ -82,5 +83,11 @@ public class Usuario {
 	}
 	public List<Publicacion> getPublicaciones(){
 		return this.publicaciones;
+	}
+	public void setEstaBloqueado(boolean estaBloqueado){
+		this.estaBloqueado=estaBloqueado;
+	}
+	public boolean getEstaBloqueado(){
+		return this.estaBloqueado;
 	}
 }

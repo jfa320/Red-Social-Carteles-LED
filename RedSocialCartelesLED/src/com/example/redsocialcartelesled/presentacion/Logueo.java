@@ -12,6 +12,7 @@ import com.vaadin.ui.Component;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
@@ -24,7 +25,7 @@ public class Logueo extends FormLayout implements View {
 	private FormLayout form = new FormLayout();
 	private Label mensajeinicio= new Label("INICIO DE SESION");
 	private TextField username = new TextField("USUARIO");
-	private TextField contraseña = new TextField("CONTRASEÑA");
+	private PasswordField contraseña = new PasswordField("CONTRASEÑA");
 	private HorizontalLayout horLay=new HorizontalLayout();
 	private Label mensajeregistro= new Label("AÚN NO TIENES CUENTA??");
 	private Button registro=new Button("REGISTRATE!!");
@@ -34,16 +35,16 @@ public class Logueo extends FormLayout implements View {
 	private BeanFieldGroup<Usuario> formFieldBindings;
 	private Window subWindow = new Window("Usuario inexistente");
 	private VerticalLayout verLay2=new VerticalLayout();
-	
+	Label userInex=new Label("El Usuario no existe o el password es erroneo");
 	public Logueo(){
-		Label userInex=new Label("El Usuario no existe o el password es erroneo");
-		verLay2.addComponent(userInex);
 		
-		subWindow.setContent(verLay2);
+		formFieldBindings =BeanFieldGroup.bindFieldsBuffered(usuario, this);
+		
+		configurarComponentes();
 		
 		construirLayout();
 
-		formFieldBindings =BeanFieldGroup.bindFieldsBuffered(usuario, this);
+		
 		
 		
 		registro.addClickListener(new Button.ClickListener() {
@@ -79,7 +80,13 @@ public class Logueo extends FormLayout implements View {
 		
 	
 	}
-	
+	private void configurarComponentes(){
+		subWindow.setContent(verLay2);
+		
+		username.setValue("");
+		contraseña.setValue("");
+		
+	}
 	private void construirLayout(){
 		
 		form.addComponent(mensajeinicio);
@@ -96,6 +103,8 @@ public class Logueo extends FormLayout implements View {
 		
 		addComponent(horLay);
 		
+		
+		verLay2.addComponent(userInex);
 	}
 	
 	@Override

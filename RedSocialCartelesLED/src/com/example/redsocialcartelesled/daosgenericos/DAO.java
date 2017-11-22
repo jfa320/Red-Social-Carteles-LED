@@ -8,4 +8,5 @@ public interface DAO<T> {
 	public T buscarPorId(final Class<T> type,Long id);
 	public void cerrar();
 	public List<T> recuperarTodo(T tipo);
-}
+	public void actualizar(T entidad);
+	}

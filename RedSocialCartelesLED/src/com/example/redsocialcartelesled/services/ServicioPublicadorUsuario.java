@@ -25,39 +25,42 @@ public class ServicioPublicadorUsuario {
 
 		post.setFechaHoraCreacion(fechaHoraActual);
 		usuarioDAO=new HibernateDAOServicioUsuario();
-		Usuario publicador=usuarioDAO.buscarPorId(Usuario.class, 3L);//hardcodeado,modificar para 2da entrega
-		
-//		usuarioDAO.cerrar();
-		System.out.println(publicador.getUsername());
+		Usuario publicador=usuarioDAO.buscarPorId(Usuario.class, 1L);//hardcodeado,modificar para 2da entrega
 		
 		publicadorDAO=new HibernateDAOPublicadorUsuario();
 		post.setPublicador(publicador);
 		
 		publicadorDAO.persistir((Publicacion)post);
-//		publicadorDAO.cerrar();
-//		usuarioDAO.cerrar();
+
 	}
 	
 	public Post levantarUltimoPost(){
-		Post post=new Post();
-		Calificacion c=new Calificacion();
-		c.setNota(3);
-		c.setPostCorrespondiente(post);
-		ArrayList<Calificacion> calificaciones = new ArrayList<Calificacion>();
-		calificaciones.add(c);
-		post.setCalificaciones(calificaciones);
-		post.setCuerpo("Hola,que haces?");
-		Date fechaYHoraCreacion=new Date();
-		post.setFechaHoraCreacion(fechaYHoraCreacion);
-		post.setImg(null);
-		post.setPopularidad(3);
-		Usuario publicador=new Usuario();
-		publicador.setUsername("Carlos");
-		post.setPublicador(publicador);
-		
-//		publicadorDAO.buscarPorId(post, 1L);
+
+		publicadorDAO=new HibernateDAOPublicadorUsuario();
+		Post post=(Post) publicadorDAO.buscarPorId(Publicacion.class, 2L); //harcodeado ver si es posible automatizar levantar ultimo post
 		return post;
 	}
+	public void recibirCalificacion(Post post,int calificacion){
+		
+		Calificacion nota=new Calificacion();
+		nota.setNota(calificacion);
+		nota.setPostCorrespondiente(post);
+		
+		
+		
+		post.getCalificaciones().add(nota);
+		actualizarPopularidad(post);
+		
+		publicadorDAO.actualizar(post);
+	}
 	
-	
+	private void actualizarPopularidad(Post post){
+		int popularidad=0;
+		
+		popularidad+=post.getCalificaciones().get(post.getCalificaciones().size()-1).getNota();
+		
+		popularidad+=post.getPopularidad();
+		post.setPopularidad(popularidad);
+		
+	}
 }

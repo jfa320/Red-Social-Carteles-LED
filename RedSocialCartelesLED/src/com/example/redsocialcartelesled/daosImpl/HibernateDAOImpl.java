@@ -25,7 +25,7 @@ public class HibernateDAOImpl<T> implements DAO<T> {
 		entityManager.persist(t);
 		entityManager.getTransaction().commit();
 		
-		entityManagerFactory.close();
+		entityManager.close();
 		return t;
 	}
 
@@ -37,7 +37,7 @@ public class HibernateDAOImpl<T> implements DAO<T> {
 		entityManager.remove(entityManager.merge(t)); //merge para que ande
 		
 		entityManager.getTransaction().commit();;
-		entityManagerFactory.close();
+		entityManager.close();
 	}
 
 	@Override
@@ -50,7 +50,7 @@ public class HibernateDAOImpl<T> implements DAO<T> {
 		
 		entityManager.getTransaction().commit();
 
-		entityManagerFactory.close();
+		entityManager.close();
 		return t;
 	}
 
@@ -62,17 +62,7 @@ public class HibernateDAOImpl<T> implements DAO<T> {
 	@SuppressWarnings(value={"unchecked"})
 	@Override
 	public List<T> recuperarTodo(T tipo) {
-//		EntityManager entityManager = entityManagerFactory.createEntityManager();
-//		entityManager.getTransaction().begin();
-//		
-//	
-//		
-//		List<T> result=entityManager.createQuery("Select t from " + persistentClass.getSimpleName() + " t").getResultList();
-//		
-//		entityManager.getTransaction().commit();
-//		entityManager.close();
-//		
-//		return result;
+
 		this.clase=tipo;
 		List<T> result = new ArrayList<T>();
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -80,10 +70,22 @@ public class HibernateDAOImpl<T> implements DAO<T> {
 		
 		
 		result = entityManager.createQuery( "from "+ clase.getClass().getSimpleName()).getResultList();
-//		result = entityManager.createQuery( "from "+ "Usuario").getResultList();
+
 		entityManager.getTransaction().commit();
 		entityManager.close();
 		return result;
+	}
+
+	@Override
+	public void actualizar(T entidad) { 
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		entityManager.getTransaction().begin();
+		
+		entityManager.merge(entidad);
+		
+		entityManager.getTransaction().commit();;
+		entityManager.close();
+		
 	}
 
 }

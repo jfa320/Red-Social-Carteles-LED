@@ -1,19 +1,17 @@
 package com.example.redsocialcartelesled.presentacion;
 
 import com.example.redsocialcartelesled.domainmodel.Usuario;
-
 import com.example.redsocialcartelesled.services.ServicioUsuario;
 import com.vaadin.data.fieldgroup.BeanFieldGroup;
 import com.vaadin.data.fieldgroup.FieldGroup.CommitException;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
-
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Component;
 import com.vaadin.ui.FormLayout;
-
 import com.vaadin.ui.Label;
+import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
-
 import com.vaadin.ui.Button.ClickEvent;
 
 
@@ -24,8 +22,9 @@ public class Registro extends FormLayout implements View {
 	private Label mensajeinicio= new Label("REGISTRATE");
 	private TextField username = new TextField("USUARIO");
 	private TextField mail = new TextField("CORREO ELECTRÓNICO");
-	private TextField contraseña = new TextField("CONTRASEÑA");
 	private TextField cuit_cuil = new TextField("CUIT O CUIL");
+	private PasswordField contraseña = new PasswordField("CONTRASEÑA");
+	
 	private Button aceptar=new Button("ACEPTAR");
 	private BeanFieldGroup<Usuario> formFieldBindings;
 	private ServicioUsuario servicioUsuario=new ServicioUsuario();
@@ -33,9 +32,11 @@ public class Registro extends FormLayout implements View {
 	private Usuario usuario=new Usuario();
 
 	public Registro(){
-		
-		construirLayout();
 		formFieldBindings =BeanFieldGroup.bindFieldsBuffered(usuario, this);
+		
+		configurarComponentes();
+		construirLayout();
+		
 
 		
 		
@@ -57,6 +58,15 @@ public class Registro extends FormLayout implements View {
 		
 	}
 	
+	private void configurarComponentes() {
+		
+		username.setValue("");
+		mail.setValue("");
+		contraseña.setValue("");
+		cuit_cuil.setValue("");
+		
+	}
+
 	private void construirLayout(){
 		
 		
