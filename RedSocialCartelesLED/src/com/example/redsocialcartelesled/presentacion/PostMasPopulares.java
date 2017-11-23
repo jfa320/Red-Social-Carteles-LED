@@ -17,7 +17,7 @@ public class PostMasPopulares extends FormLayout implements View{
 	private ServicioPublicadorUsuario servicio=new ServicioPublicadorUsuario();
 	
 	
-	protected static final String NAME = "";
+	protected static final String NAME = "popular";
 	private List<Post> posts=servicio.levantarCincoPost();
 	private Panel panel1;
 	private Panel panel2;

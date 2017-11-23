@@ -21,7 +21,7 @@ import com.vaadin.ui.Window;
 
 public class Logueo extends FormLayout implements View {
 
-	protected static final String NAME = "";
+	protected static final String NAME = "logueo";
 	private FormLayout form = new FormLayout();
 	private Label mensajeinicio= new Label("INICIO DE SESION");
 	private TextField username = new TextField("USUARIO");
@@ -29,7 +29,7 @@ public class Logueo extends FormLayout implements View {
 	private HorizontalLayout horLay=new HorizontalLayout();
 	private Label mensajeregistro= new Label("AÚN NO TIENES CUENTA??");
 	private Button registro=new Button("REGISTRATE!!");
-	private Button aceptar=new Button("INICIAR SESION");
+	private Button iniciarsesion=new Button("INICIAR SESION");
 	private ServicioUsuario servicioUsuario=new ServicioUsuario();
 	private Usuario usuario=new Usuario();
 	private BeanFieldGroup<Usuario> formFieldBindings;
@@ -56,7 +56,7 @@ public class Logueo extends FormLayout implements View {
 			}
 		});
 		
-		aceptar.addClickListener(new Button.ClickListener() {
+		iniciarsesion.addClickListener(new Button.ClickListener() {
 		
 			@Override
 			public void buttonClick(ClickEvent event) {
@@ -69,7 +69,7 @@ public class Logueo extends FormLayout implements View {
 				}
 			
 				if(servicioUsuario.login(usuario)){
-					getUI().getNavigator().navigateTo(CreacionPost.NAME);
+					getUI().getNavigator().navigateTo(Menu.NAME);
 				}
 				else{
 					getUI().addWindow(subWindow);
@@ -99,7 +99,7 @@ public class Logueo extends FormLayout implements View {
 		
 		addComponent(form);
 		
-		addComponent(aceptar);
+		addComponent(iniciarsesion);
 		
 		addComponent(horLay);
 		

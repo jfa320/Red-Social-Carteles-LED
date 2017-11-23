@@ -20,7 +20,7 @@ public class CreacionPost extends FormLayout implements View {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	protected static final String NAME = "";
+	protected static final String NAME = "creacion";
 	
 	private Button subirImg=new Button("Subir Imagen");
 	
@@ -50,6 +50,7 @@ public class CreacionPost extends FormLayout implements View {
 				e.printStackTrace();
 			}
 			servicioPublicadorUsuario.publicarPost(post);
+			getUI().getNavigator().navigateTo(Menu.NAME);
 			}
 		});
 		
