@@ -2,6 +2,7 @@ package com.example.redsocialcartelesled.services;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import com.example.redsocialcartelesled.daosImpl.HibernateDAOPublicadorUsuario;
 import com.example.redsocialcartelesled.daosImpl.HibernateDAOServicioUsuario;
@@ -31,23 +32,21 @@ public class ServicioPublicadorUsuario {
 		post.setPublicador(publicador);
 		
 		publicadorDAO.persistir((Publicacion)post);
-
-	}
+		}
 	
-	public Post levantarUltimoPost(){
+	public Post levantarUltimoPost(){ //FUNCIONALIDAD EXTRA
 
 		publicadorDAO=new HibernateDAOPublicadorUsuario();
-		Post post=(Post) publicadorDAO.buscarPorId(Publicacion.class, 2L); //harcodeado ver si es posible automatizar levantar ultimo post
-		return post;
+		Publicacion post=new Publicacion();
+		List <Publicacion> lista=publicadorDAO.recuperarTodo(post);
+		post=lista.get(lista.size()-1);
+		return (Post) post;
 	}
 	public void recibirCalificacion(Post post,int calificacion){
 		
 		Calificacion nota=new Calificacion();
 		nota.setNota(calificacion);
 		nota.setPostCorrespondiente(post);
-		
-		
-		
 		post.getCalificaciones().add(nota);
 		actualizarPopularidad(post);
 		
@@ -62,5 +61,25 @@ public class ServicioPublicadorUsuario {
 		popularidad+=post.getPopularidad();
 		post.setPopularidad(popularidad);
 		
+	}
+
+	public List<Post> levantarCincoPost() {
+		publicadorDAO=new HibernateDAOPublicadorUsuario();
+		Publicacion pub=new Publicacion();
+		List<Publicacion> posts=publicadorDAO.recuperarTodo(pub);
+		int contador=0;
+		List<Post> result=new ArrayList<Post>();
+		for(int i=0;i<posts.size();i++){
+			if(contador==5){
+				return result;
+			}
+			else{
+				result.add((Post) posts.get(i));
+			}
+			
+		}
+		
+		
+		return result;
 	}
 }

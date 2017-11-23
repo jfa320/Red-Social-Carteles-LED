@@ -35,8 +35,9 @@ public class RedsocialcartelesledUI extends UI {
 		//todas las views del navigator hay que configurarlas con el menu principal
 //		navegador.addView(Logueo.NAME, new Logueo());
 //		navegador.addView(CreacionPost.NAME, new CreacionPost());
-		navegador.addView(CalificacionPost.NAME, new CalificacionPost());
+//		navegador.addView(CalificacionPost.NAME, new CalificacionPost());
 //		navegador.addView(Registro.NAME, new Registro());
+		navegador.addView(PostMasPopulares.NAME, new PostMasPopulares());
 		
 	}
 

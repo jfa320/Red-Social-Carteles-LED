@@ -83,7 +83,7 @@ public class HibernateDAOImpl<T> implements DAO<T> {
 		
 		entityManager.merge(entidad);
 		
-		entityManager.getTransaction().commit();;
+		entityManager.getTransaction().commit();
 		entityManager.close();
 		
 	}

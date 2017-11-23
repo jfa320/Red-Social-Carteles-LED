@@ -21,8 +21,7 @@ public class ServicioUsuario {
 //		return false;
 	}
 	
-	public boolean login(Usuario usuario){//idem registro,si se puede loguear correctamente tira true sino false
-										//nos va a servir para lanzar un msj desde la view notificando error de login
+	public boolean login(Usuario usuario){
 		
 		
 		List<Usuario> usuarios=usuarioDAO.recuperarTodo(usuario);
@@ -76,5 +75,6 @@ public class ServicioUsuario {
 	    //(Esta forma esta dada para prevenir errores, en java 6 se puede usar: return aux.equals(Character.getNumericValue(cuitArray[10]));)
 	    return Objects.equals(Character.getNumericValue(cuitArray[10]), aux);
 	}
+	
 	
 }
