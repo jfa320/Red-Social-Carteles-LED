@@ -69,15 +69,25 @@ public class ServicioPublicadorUsuario {
 		List<Publicacion> posts=publicadorDAO.recuperarTodo(pub);
 		int contador=0;
 		List<Post> result=new ArrayList<Post>();
-		for(int i=0;i<posts.size();i++){
-			if(contador==5){
-				return result;
+		
+//		for(int i=0;i<posts.size();i++){
+//			if(contador==5){
+//				return result;
+//			}
+//			else{
+//				result.add((Post) posts.get(i));
+//			}
+//			
+//		}
+		
+		while(contador<5){
+			int numero = (int) (Math.random() * posts.size());
+			if(!result.contains(posts.get(numero))){
+				result.add((Post) posts.get(numero));
+				contador++;
 			}
-			else{
-				result.add((Post) posts.get(i));
-			}
-			
 		}
+		
 		
 		
 		return result;

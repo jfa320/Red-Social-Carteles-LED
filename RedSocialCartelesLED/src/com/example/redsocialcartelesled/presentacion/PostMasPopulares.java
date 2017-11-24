@@ -10,6 +10,7 @@ import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Panel;
+import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
 public class PostMasPopulares extends FormLayout implements View{
@@ -26,6 +27,13 @@ public class PostMasPopulares extends FormLayout implements View{
 	private Panel panel5;
 	
 	public PostMasPopulares(){
+		
+	configurarComponentes();
+	construirLayout();
+			
+	}
+	
+	public void configurarComponentes(){
 		panel1=new Panel("Post publicado por "+posts.get(0).getPublicador().getUsername());
 		panel2=new Panel("Post publicado por "+posts.get(1).getPublicador().getUsername());
 		panel3=new Panel("Post publicado por "+posts.get(2).getPublicador().getUsername());
@@ -38,8 +46,9 @@ public class PostMasPopulares extends FormLayout implements View{
 		panel3.setContent(new Label("Contenido del post: "+posts.get(2).getCuerpo()));
 		panel4.setContent(new Label("Contenido del post: "+posts.get(3).getCuerpo()));
 		panel5.setContent(new Label("Contenido del post: "+posts.get(4).getCuerpo()));
-		
-		
+	}
+	
+	public void construirLayout(){
 		verLay.addComponent(panel1);
 		verLay.addComponent(panel2);
 		verLay.addComponent(panel3);
@@ -47,8 +56,6 @@ public class PostMasPopulares extends FormLayout implements View{
 		verLay.addComponent(panel5);
 		this.addComponent(verLay);
 	}
-	
-	
 	
 	
 	@Override

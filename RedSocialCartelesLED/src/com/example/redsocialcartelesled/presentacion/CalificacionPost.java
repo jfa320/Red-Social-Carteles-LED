@@ -20,7 +20,7 @@ import com.vaadin.ui.Button.ClickEvent;
 public class CalificacionPost extends FormLayout implements View {
 
 	
-	protected static final String NAME = "";
+	protected static final String NAME = "Calificacion";
 	private ServicioPublicadorUsuario servicioPublicadorUsuario=new ServicioPublicadorUsuario();
 	TextField area=new TextField(); 
 	Label label=new Label("Califica el post!");
@@ -39,6 +39,7 @@ public class CalificacionPost extends FormLayout implements View {
 			@Override
 			public void buttonClick(ClickEvent event) {
 				servicioPublicadorUsuario.recibirCalificacion(post, Integer.parseInt(group.getValue().toString()));
+				getUI().getNavigator().navigateTo(Menu.NAME);
 			}
 		});
 		
@@ -48,7 +49,7 @@ public class CalificacionPost extends FormLayout implements View {
 		
 		area.setValue(post.getCuerpo());
 		area.setReadOnly(true);
-		
+	
 		
 		
 		group.addItems("1", "2", "3","4","5");

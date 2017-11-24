@@ -42,7 +42,7 @@ public class Menu extends FormLayout implements View {
 			
 			@Override
 			public void buttonClick(ClickEvent event) {
-			//	getUI().getNavigator().navigateTo(VerPost.NAME); //ACA SE DEBE CAMBIAR POR EL NOMBRE DE LA CLASE QUE MUESTRA LOS POST
+				getUI().getNavigator().navigateTo(PostMasPopulares.NAME); //ACA SE DEBE CAMBIAR POR EL NOMBRE DE LA CLASE QUE MUESTRA LOS POST
 				
 			}
 		});
@@ -65,7 +65,7 @@ public class Menu extends FormLayout implements View {
 			public void buttonClick(ClickEvent event) {
 				
 				
-					getUI().getNavigator().navigateTo(CreacionPost.NAME);
+					getUI().getNavigator().navigateTo(CalificacionPost.NAME);
 				}
 				
 		});
