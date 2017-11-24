@@ -6,12 +6,14 @@ import com.example.redsocialcartelesled.domainmodel.Post;
 import com.example.redsocialcartelesled.services.ServicioPublicadorUsuario;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.ui.Button;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.Button.ClickEvent;
 
 public class PostMasPopulares extends FormLayout implements View{
 	private VerticalLayout verLay=new VerticalLayout();
@@ -20,6 +22,7 @@ public class PostMasPopulares extends FormLayout implements View{
 	
 	protected static final String NAME = "popular";
 	private List<Post> posts=servicio.levantarCincoPost();
+	private Button volverMenu=new Button ("MENU");
 	private Panel panel1;
 	private Panel panel2;
 	private Panel panel3;
@@ -46,7 +49,18 @@ public class PostMasPopulares extends FormLayout implements View{
 		panel3.setContent(new Label("Contenido del post: "+posts.get(2).getCuerpo()));
 		panel4.setContent(new Label("Contenido del post: "+posts.get(3).getCuerpo()));
 		panel5.setContent(new Label("Contenido del post: "+posts.get(4).getCuerpo()));
+		
+		
+		volverMenu.addClickListener(new Button.ClickListener() {
+			
+			@Override
+			public void buttonClick(ClickEvent event) {
+				getUI().getNavigator().navigateTo(Menu.NAME);
+			}
+		});
+		
 	}
+		
 	
 	public void construirLayout(){
 		verLay.addComponent(panel1);
@@ -55,6 +69,7 @@ public class PostMasPopulares extends FormLayout implements View{
 		verLay.addComponent(panel4);
 		verLay.addComponent(panel5);
 		this.addComponent(verLay);
+		addComponent(volverMenu);
 	}
 	
 	

@@ -22,12 +22,12 @@ public class CalificacionPost extends FormLayout implements View {
 	
 	protected static final String NAME = "Calificacion";
 	private ServicioPublicadorUsuario servicioPublicadorUsuario=new ServicioPublicadorUsuario();
-	TextField area=new TextField(); 
-	Label label=new Label("Califica el post!");
-	Button aceptar=new Button("Aceptar");
-	Post post=servicioPublicadorUsuario.levantarUltimoPost();
-	Label escritoPor=new Label("escrito por " + post.getPublicador().getUsername());
-	OptionGroup group = new OptionGroup("Calificacion");
+	private TextField area=new TextField(); 
+	private Label label=new Label("Califica el post!");
+	private Button aceptar=new Button("Aceptar");
+	private Post post=servicioPublicadorUsuario.levantarUltimoPost();
+	private Label escritoPor=new Label("escrito por " + post.getPublicador().getUsername());
+	private OptionGroup group = new OptionGroup("Calificacion");
 	
 	public CalificacionPost(){
 

@@ -7,6 +7,8 @@ import java.util.Objects;
 import com.example.redsocialcartelesled.daosImpl.HibernateDAOServicioUsuario;
 import com.example.redsocialcartelesled.daosgenericos.DAOServicioUsuario;
 import com.example.redsocialcartelesled.domainmodel.Usuario;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ServicioUsuario {
 	private DAOServicioUsuario usuarioDAO=new HibernateDAOServicioUsuario();
@@ -76,5 +78,63 @@ public class ServicioUsuario {
 	    return Objects.equals(Character.getNumericValue(cuitArray[10]), aux);
 	}
 	
-	
+///////////////////////////////////////VERIFICADOR MAIL////////////////////////////////
+
+private boolean VerificarMail(String mail)
+{
+Pattern pattern= Pattern.compile("[a-z,A-Z,0-9-_]{1,20}\\@[a-z,A-Z]{1,12}\\.com");
+Matcher matcher= pattern.matcher(mail);
+
+
+if (matcher.matches()) {
+return true;
+}
+return false;
+
+
+}
+
+///////////////////////////////////////// VERIFICADOR USUARIO////////////////////////////
+
+private boolean VerificarUsuario(String user){
+Pattern pattern= Pattern.compile("[A-Z]{1}\\[a-z,A-Z]{1,12}\\[0-9]{1,4}");
+Matcher matcher= pattern.matcher(user);
+
+
+if (matcher.matches()) {
+return true;
+}
+return false;
+
+
+}
+
+///////////////////////////////////////// VERIFICADOR PASSWORD///////////////////////////
+
+private boolean VerificarPassword(String password){
+Pattern pattern= Pattern.compile("[a-z,A-Z,0-9]{4,12}");
+Matcher matcher= pattern.matcher(password);
+
+
+if (matcher.matches()) {
+return true;
+}
+return false;
+
+}
+
+/////////////////////////////////////VERIFICADOR CUIT///////////////////////////////////
+
+
+private boolean VerificarCuit(String cuit){
+Pattern pattern= Pattern.compile("[20,23,24,27,30,33,34]{2}\\[0-9]{8}\\[7,9]{1}");
+Matcher matcher= pattern.matcher(cuit);
+
+if (matcher.matches()) {
+return true;
+}
+return false;
+
+}
+		
 }

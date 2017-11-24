@@ -19,7 +19,7 @@ public class Usuario {
 	
 	private String username;
 	private String mail;
-	private Long cuit_cuil;
+	private Long cuit_cuil=0L;
 	private String contraseña;
 	private int puntosPrestigio;
 	private boolean esPrestigioso;

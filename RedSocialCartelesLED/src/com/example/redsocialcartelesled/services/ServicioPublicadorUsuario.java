@@ -26,7 +26,7 @@ public class ServicioPublicadorUsuario {
 
 		post.setFechaHoraCreacion(fechaHoraActual);
 		usuarioDAO=new HibernateDAOServicioUsuario();
-		Usuario publicador=usuarioDAO.buscarPorId(Usuario.class, 1L);//hardcodeado,modificar para 2da entrega
+		Usuario publicador=usuarioDAO.buscarPorId(Usuario.class, 2L);//hardcodeado,modificar para 2da entrega
 		
 		publicadorDAO=new HibernateDAOPublicadorUsuario();
 		post.setPublicador(publicador);

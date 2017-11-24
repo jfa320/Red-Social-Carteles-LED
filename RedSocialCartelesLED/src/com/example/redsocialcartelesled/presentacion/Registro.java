@@ -51,8 +51,8 @@ public class Registro extends FormLayout implements View {
 				}
 				
 				servicioUsuario.registrar(usuario);
-					
-			}
+				getUI().getNavigator().navigateTo(Menu.NAME);
+					}
 		});
 		
 		
