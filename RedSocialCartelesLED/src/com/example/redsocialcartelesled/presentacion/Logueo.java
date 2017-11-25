@@ -3,11 +3,13 @@ package com.example.redsocialcartelesled.presentacion;
 import com.example.redsocialcartelesled.domainmodel.Usuario;
 import com.example.redsocialcartelesled.services.ServicioPublicadorUsuario;
 import com.example.redsocialcartelesled.services.ServicioUsuario;
+import com.gargoylesoftware.htmlunit.javascript.host.KeyboardEvent;
 import com.vaadin.data.fieldgroup.BeanFieldGroup;
 import com.vaadin.data.fieldgroup.FieldGroup.CommitException;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.HorizontalLayout;
@@ -35,7 +37,7 @@ public class Logueo extends FormLayout implements View {
 	private BeanFieldGroup<Usuario> formFieldBindings;
 	private Window subWindow = new Window("Usuario inexistente");
 	private VerticalLayout verLay2=new VerticalLayout();
-	Label userInex=new Label("El Usuario no existe o el password es erroneo");
+	private Label userInex=new Label("El Usuario no existe o el password es erroneo");
 	public Logueo(){
 		
 		formFieldBindings =BeanFieldGroup.bindFieldsBuffered(usuario, this);
@@ -43,8 +45,6 @@ public class Logueo extends FormLayout implements View {
 		configurarComponentes();
 		
 		construirLayout();
-
-		
 		
 		
 		registro.addClickListener(new Button.ClickListener() {
@@ -55,9 +55,9 @@ public class Logueo extends FormLayout implements View {
 				
 			}
 		});
-		
+	
 		iniciarsesion.addClickListener(new Button.ClickListener() {
-		
+			
 			@Override
 			public void buttonClick(ClickEvent event) {
 				try {
