@@ -34,7 +34,7 @@ public class HibernateDAOImpl<T> implements DAO<T> {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
 		
-		entityManager.remove(entityManager.merge(t)); //merge para que ande
+		entityManager.remove(entityManager.merge(t)); 
 		
 		entityManager.getTransaction().commit();;
 		entityManager.close();

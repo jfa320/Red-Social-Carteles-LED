@@ -26,7 +26,7 @@ public class ServicioPublicadorUsuario {
 
 		post.setFechaHoraCreacion(fechaHoraActual);
 		usuarioDAO=new HibernateDAOServicioUsuario();
-		Usuario publicador=usuarioDAO.buscarPorId(Usuario.class, 2L);//hardcodeado,modificar para 2da entrega
+		Usuario publicador=usuarioDAO.buscarPorId(Usuario.class, 2L);//hardcodeado el usuario con ID 2 para crear posts
 		
 		publicadorDAO=new HibernateDAOPublicadorUsuario();
 		post.setPublicador(publicador);
@@ -70,15 +70,6 @@ public class ServicioPublicadorUsuario {
 		int contador=0;
 		List<Post> result=new ArrayList<Post>();
 		
-//		for(int i=0;i<posts.size();i++){
-//			if(contador==5){
-//				return result;
-//			}
-//			else{
-//				result.add((Post) posts.get(i));
-//			}
-//			
-//		}
 		
 		while(contador<5){
 			int numero = (int) (Math.random() * posts.size());

@@ -14,11 +14,8 @@ public class ServicioUsuario {
 	private DAOServicioUsuario usuarioDAO=new HibernateDAOServicioUsuario();
 	
 	
-	public void registrar(Usuario usuario){ //teniendo como boolean podemos notificar que no se pudo realizar
-												//registro por algun motivo (por ej: cuit invalido)
-//		if(esValidoCuitDe(usuario)){
-		
-		
+	public void registrar(Usuario usuario){
+
 			usuarioDAO.persistir(usuario);
 		
 	}
@@ -39,7 +36,7 @@ public class ServicioUsuario {
 	
 	public String tipoUsuario(Usuario usuario){
 		if(usuario.getPuntosPrestigio()>1){ //modificar el 1,por lo que configura el admin
-											//probablemente haya que enlazar con el servicio admin.
+											
 			return "Usuario Prestigioso";
 		}
 		else{

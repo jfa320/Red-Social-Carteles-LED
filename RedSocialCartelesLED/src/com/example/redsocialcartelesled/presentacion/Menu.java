@@ -39,10 +39,11 @@ public class Menu extends FormLayout implements View {
 		
 		
 		inicio.addClickListener(new Button.ClickListener() {
-			
+		
 			@Override
 			public void buttonClick(ClickEvent event) {
-				getUI().getNavigator().navigateTo(PostMasPopulares.NAME); //ACA SE DEBE CAMBIAR POR EL NOMBRE DE LA CLASE QUE MUESTRA LOS POST
+				
+				getUI().getNavigator().navigateTo(PostMasPopulares.NAME); 
 				
 			}
 		});
@@ -76,7 +77,7 @@ public class Menu extends FormLayout implements View {
 	
 	private void construirLayout(){
 		
-		//mensajeinicio.setWidth("150");// ESTO DEBERIA AJUSTARME EL CENTRALIZADO DE MENU PRINCIPAL
+		
 		form.addComponent(mensajeinicio);
 		
 	

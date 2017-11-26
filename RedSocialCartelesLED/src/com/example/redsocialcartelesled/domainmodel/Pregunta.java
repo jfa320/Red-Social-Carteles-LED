@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Pregunta {
 	private String cuerpo;
-	private ArrayList<Respuesta> respuestasPosibles; //el array contiene opciones de respuestas
+	private ArrayList<Respuesta> respuestasPosibles; 
 	
 	public String getCuerpo(){
 		return cuerpo;

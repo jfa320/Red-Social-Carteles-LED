@@ -11,7 +11,7 @@ public class Calificacion {
 	@Id
 	@GeneratedValue
 	private Long id; //para persistir con Hibernate
-	private int nota; //de 1 a 5 (ver forma de restringir)
+	private int nota; 
 	@ManyToOne(cascade = CascadeType.MERGE)
 	private Post postCorrespondiente;
 	

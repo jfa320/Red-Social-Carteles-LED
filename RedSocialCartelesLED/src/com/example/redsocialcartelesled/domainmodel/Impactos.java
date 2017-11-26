@@ -1,8 +1,8 @@
 package com.example.redsocialcartelesled.domainmodel;
 
 public class Impactos extends Publicacion {
-	private String texto; //limite 100 caracteres
-	private int popularidad;//debe ser mayor a 10000 votos para ser publicado en carteles
+	private String texto;
+	private int popularidad;
 	
 	public String getTexto(){
 		return texto;

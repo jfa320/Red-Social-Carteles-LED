@@ -47,7 +47,6 @@ public class Registro extends FormLayout implements View {
 		configurarComponentes();
 		construirLayout();
 		
-
 		
 		
 		aceptar.addClickListener(new Button.ClickListener() {

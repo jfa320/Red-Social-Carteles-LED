@@ -43,7 +43,7 @@ public class Inicio extends FormLayout implements View {
 			
 			@Override
 			public void buttonClick(ClickEvent event) {
-				getUI().getNavigator().navigateTo(Registro.NAME); //ACA SE DEBE CAMBIAR POR EL NOMBRE DE LA CLASE QUE MUESTRA LOS POST
+				getUI().getNavigator().navigateTo(Registro.NAME); 
 				
 			}
 		});
