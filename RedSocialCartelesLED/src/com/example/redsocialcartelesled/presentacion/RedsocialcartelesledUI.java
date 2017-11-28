@@ -11,7 +11,7 @@ import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.UI;
 
-@Push
+
 @SuppressWarnings("serial")
 @Theme("redsocialcartelesled")
 public class RedsocialcartelesledUI extends UI {

@@ -34,13 +34,13 @@ public class Registro extends FormLayout implements View {
 	private Usuario usuario=new Usuario();
 	private Window subWindow = new Window("Error en registro");
 	private Window subWindow2 = new Window("Error en registro");
-	private Window subWindow3 = new Window("Error en registro");
+	
 	private Label errorMail=new Label("El Mail ingresado es incorrecto");
-	private Label errorCUIT=new Label("El CUIT/CUIL ingresado es incorrecto");
+	
 	private Label errorPassword=new Label("El Password ingresado es incorrecto. Recuerde que debe tener entre 4 y 12 caracteres. Para su mayor seguridad incluya números y mayusculas en él. ");
 	private VerticalLayout verLay2=new VerticalLayout();
 	private VerticalLayout verLay3=new VerticalLayout();
-	private VerticalLayout verLay4=new VerticalLayout();
+	
 	public Registro(){
 		formFieldBindings =BeanFieldGroup.bindFieldsBuffered(usuario, this);
 		
@@ -59,7 +59,7 @@ public class Registro extends FormLayout implements View {
 					e.printStackTrace();
 				}
 				
-				if(servicioUsuario.VerificarMail(usuario) && servicioUsuario.VerificarPassword(usuario) & servicioUsuario.VerificarCuit(usuario)){
+				if(servicioUsuario.VerificarMail(usuario) && servicioUsuario.VerificarPassword(usuario)){
 					servicioUsuario.registrar(usuario);
 					getUI().getNavigator().navigateTo(Menu.NAME);}
 				else if(!servicioUsuario.VerificarMail(usuario)){
@@ -70,9 +70,7 @@ public class Registro extends FormLayout implements View {
 					getUI().addWindow(subWindow2);
 				}
 				
-				else {
-					getUI().addWindow(subWindow3);
-				}
+				
 					}
 		});
 		
@@ -87,7 +85,7 @@ public class Registro extends FormLayout implements View {
 		cuit_cuil.setValue("");
 		subWindow.setContent(verLay2);
 		subWindow2.setContent(verLay3);
-		subWindow3.setContent(verLay4);
+	
 	}
 
 	private void construirLayout(){
@@ -101,7 +99,7 @@ public class Registro extends FormLayout implements View {
 		form.addComponent(cuit_cuil);
 		verLay2.addComponent(errorMail);
 		verLay3.addComponent(errorPassword);
-		verLay4.addComponent(errorCUIT);
+		
 		addComponent(form);
 	
 		addComponent(aceptar);
